@@ -153,154 +153,186 @@
       <!-- Sidebar -->
 
       <!-- Ansicht -->
+
+      <!-- Dokumentenansicht -->
+      <div style="display: none;">
+        Dokumentenansicht
+
+      </div>
+
+
+      <!-- Schreibtischansicht -->
       <div class="col py-3">
 
-        <!-- Dokumentenansicht -->
-        <div style="display: none;">
-          Dokumentenansicht
+        <!-- grid -->
+        <div class="container">
+          <div class="row">
 
-        </div>
+            <div class="col col-auto">
+              <div class="col-auto">
+                <button id="openPDF" class="btn btn-secondary">
+                  <span>Open</span> <i class="fas fa-folder-open"></i>
+                </button>
+                <input type="file" id="inputFile" hidden>
+              </div>
+            </div>
 
+            <div class="col">
+              <!-- Toolbar oben -->
+              <div class="col-auto">
+                <div class="group mb-2">
+                  <div class="group-prepend px-2">
+                    <div class="input-group-text" style="width: 650px;">
+                      <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                        <div class="btn-group mr-2" role="group" aria-label="First group">
+                          <button type="button px" class="btn btn-secondary">
+                            <img src="./resources/svg/zoom-in.svg" alt="" width="20" height="20">
+                          </button>
+                          <button type="button" class="btn btn-secondary">
+                            <img src="./resources/svg/zoom-out.svg" alt="" width="20" height="20">
+                          </button>
+                        </div>
 
-        <!-- Schreibtischansicht -->
-        <div class="Schreibtischansicht">
+                        <div class="col-xs-12" style="width: 89px;"></div>
 
-          <!-- Toolbar oben -->
-          <div class="col-auto">
-            <div class="group mb-2 px-5">
-              <div class="group-prepend px-5">
-                <div class="input-group-text" style="width: 650px;">
-                  <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                    <div class="btn-group mr-2" role="group" aria-label="First group">
-                      <button type="button px" class="btn btn-secondary">
-                        <img src="./resources/svg/zoom-in.svg" alt="" width="20" height="20">
-                      </button>
-                      <button type="button" class="btn btn-secondary">
-                        <img src="./resources/svg/zoom-out.svg" alt="" width="20" height="20">
-                      </button>
-                    </div>
+                        <li class="btn btn-secondary">
+                          <span id="zoomValue">100%</span>
+                          <input type="range" id="zoom" name="cowbell" min="100" max="300" value="150" step="50"
+                            disabled>
+                        </li>
 
-                    <div class="col-xs-12" style="width: 89px;"></div>
+                        <div class="col-xs-12" style="width: 89px;"></div>
 
-                    <li class="btn btn-secondary">
-                      <span id="zoomValue">100%</span>
-                      <input type="range" id="zoom" name="cowbell" min="100" max="300" value="150" step="50" disabled>
-                    </li>
-
-                    <div class="col-xs-12" style="width: 89px;"></div>
-
-                    <div class="btn-group" role="group" aria-label="Second group">
-                      <button type="button" class="btn btn-secondary">
-                        <img src="./resources/svg/file-earmark-arrow-down.svg" alt="" width="20" height="20">
-                      </button>
-                      <button type="button" class="btn btn-secondary">
-                        <img src="./resources/svg/file-earmark-arrow-down-fill.svg" alt="" width="20" height="20">
-                      </button>
+                        <div class="btn-group" role="group" aria-label="Second group">
+                          <button type="button" class="btn btn-secondary">
+                            <img src="./resources/svg/file-earmark-arrow-down.svg" alt="" width="20" height="20">
+                          </button>
+                          <button type="button" class="btn btn-secondary">
+                            <img src="./resources/svg/file-earmark-arrow-down-fill.svg" alt="" width="20" height="20">
+                          </button>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
+            <div class="col">
+              Titel und so
             </div>
           </div>
 
           <div class="row">
-            <!-- Toolbar seitlich -->
-            <div style="height: 200px; width: 72px;">
-              <div class="input-group-text form-control" style="width: 72px;">
-                <div class="btn-group-vertical">
 
-                  <div class="btn-group-vertical pt-1">
-                    <button type="button" class="btn btn-secondary">
-                      <img src="./resources/svg/pencil.svg" alt="" width="20" height="20">
-                    </button>
-                    <button type="button" class="btn btn-secondary">
-                      <img src="./resources/svg/square-fill.svg" alt="" width="20" height="20">
-                    </button>
-                    <button type="button" class="btn btn-secondary">
-                      <img src="./resources/svg/eye.svg" alt="" width="20" height="20">
-                    </button>
-                  </div>
+            <div class="col col-auto">
+              <!-- Toolbar seitlich -->
+              <div style="height: 200px; width: 72px;">
+                <div class="input-group-text form-control" style="width: 72px;">
+                  <div class="btn-group-vertical">
 
-                  <div class="btn-group-vertical pt-2">
-                    <button type="button" class="btn btn-secondary">
-                      <img src="./resources/svg/brush.svg" alt="" width="20" height="20">
-                    </button>
-                    <button type="button" class="btn btn-secondary">
-                      <img src="./resources/svg/square-fill.svg" alt="" width="20" height="20">
-                    </button>
-                    <button type="button" class="btn btn-secondary">
-                      <img src="./resources/svg/eye.svg" alt="" width="20" height="20">
-                    </button>
-                  </div>
+                    <div class="btn-group-vertical pt-1">
+                      <button type="button" class="btn btn-secondary">
+                        <img src="./resources/svg/pencil.svg" alt="" width="20" height="20">
+                      </button>
+                      <button type="button" class="btn btn-secondary">
+                        <img src="./resources/svg/square-fill.svg" alt="" width="20" height="20">
+                      </button>
+                      <button type="button" class="btn btn-secondary">
+                        <img src="./resources/svg/eye.svg" alt="" width="20" height="20">
+                      </button>
+                    </div>
 
-                  <div class="btn-group-vertical pt-2">
-                    <button type="button" class="btn btn-secondary">
-                      <img src="./resources/svg/type-underline.svg" alt="" width="20" height="20">
-                    </button>
-                    <button type="button" class="btn btn-secondary">
-                      <img src="./resources/svg/square-fill.svg" alt="" width="20" height="20">
-                    </button>
-                    <button type="button" class="btn btn-secondary">
-                      <img src="./resources/svg/eye.svg" alt="" width="20" height="20">
-                    </button>
-                  </div>
+                    <div class="btn-group-vertical pt-2">
+                      <button type="button" class="btn btn-secondary">
+                        <img src="./resources/svg/brush.svg" alt="" width="20" height="20">
+                      </button>
+                      <button type="button" class="btn btn-secondary">
+                        <img src="./resources/svg/square-fill.svg" alt="" width="20" height="20">
+                      </button>
+                      <button type="button" class="btn btn-secondary">
+                        <img src="./resources/svg/eye.svg" alt="" width="20" height="20">
+                      </button>
+                    </div>
 
-                  <div class="pt-2">
-                    <button type="button" class="btn btn-secondary">
-                      <img src="./resources/svg/chat-right-text-fill.svg" alt="" width="20" height="20">
-                    </button>
-                  </div>
+                    <div class="btn-group-vertical pt-2">
+                      <button type="button" class="btn btn-secondary">
+                        <img src="./resources/svg/type-underline.svg" alt="" width="20" height="20">
+                      </button>
+                      <button type="button" class="btn btn-secondary">
+                        <img src="./resources/svg/square-fill.svg" alt="" width="20" height="20">
+                      </button>
+                      <button type="button" class="btn btn-secondary">
+                        <img src="./resources/svg/eye.svg" alt="" width="20" height="20">
+                      </button>
+                    </div>
 
-                  <div class="col-xs-12" style="height:130px;"></div>
+                    <div class="pt-2">
+                      <button type="button" class="btn btn-secondary">
+                        <img src="./resources/svg/chat-right-text-fill.svg" alt="" width="20" height="20">
+                      </button>
+                    </div>
 
-                  <div class="pt-5 pb-1">
-                    <button type="button" class="btn btn-secondary">
-                      <img src="./resources/svg/trash-fill.svg" alt="" width="20" height="20">
-                    </button>
+                    <div class="col-xs-12" style="height:130px;"></div>
+
+                    <div class="pt-5 pb-1">
+                      <button type="button" class="btn btn-secondary">
+                        <img src="./resources/svg/trash-fill.svg" alt="" width="20" height="20">
+                      </button>
+                    </div>
+
                   </div>
 
                 </div>
 
               </div>
-
+              <!-- Toolbar seitlich -->
             </div>
-            <!-- Toolbar seitlich -->
 
-            <div class="col-xs-12" style="width: 35px;"></div>
+            <div class="col">
+              <div class="card form-control" style="width: 650px; height: 850px;">
 
-            <!-- PDF Card -->
-            <div class="card form-control" style="width: 650px; height: 850px;">
+                <!-- PDF Viewer -->
+                <div>
+                  <main>
+                    <canvas class="pdf-viewer hidden">
 
-               <!-- PDF Viewer -->
-              <div>
-                <main>
-                  <canvas class="pdf-viewer hidden">
+                    </canvas>
+                  </main>
+                  <footer>
+                    <ul>
+                    </ul>
+                  </footer>
+                  <script type="text/javascript" src="JS/index.js"></script>
+                </div>
 
-                  </canvas>
-                </main>
-                <footer>
-                  <ul>
-                    <li>
-                      <button id="openPDF">
-                        <span>Open</span> <i class="fas fa-folder-open"></i>
-                      </button>
-                      <input type="file" id="inputFile" hidden>
-                    </li>
-                    <li class="pagination">
-                      <button id="previous"><i class="fas fa-arrow-alt-circle-left"></i></button>
-                      <span id="current_page">0 of 0</span>
-                      <button id="next"><i class="fas fa-arrow-alt-circle-right"></i></button>
-                    </li>
-                  </ul>
-                </footer>
-                <script type="text/javascript" src="JS/index.js"></script>
               </div>
+            </div>
 
+            <div class="col">
+              Kommentarfeld
             </div>
 
           </div>
+
+          <div class="row">
+            <div class="col col-auto">
+              <div class="col-xs-12" style="width: 300px;"></div>
+            </div>
+            <div class="col-auto my-2">
+                <div class="input-group-text w-auto">
+                  <button id="previous" type="button" class="btn btn-secondary p-1 m-1">
+                    <img src="./resources/svg/arrow-left-circle.svg" alt="" width="20" height="20">
+                  </button>
+                  <span id="current_page"> Seite 0 / 0</span>
+                  <button id="next" type="button" class="btn btn-secondary p-1 m-1">
+                    <img src="./resources/svg/arrow-right-circle.svg" alt="" width="20" height="20">
+                  </button>
+                </div>
+            </div>
+          </div>
+          <!-- grid -->
+
         </div>
-      </div>
 
 </body>
 

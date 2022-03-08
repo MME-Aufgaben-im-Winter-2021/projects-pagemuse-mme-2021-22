@@ -1,12 +1,18 @@
 function init() {
     console.log("### Starting MME Project ###");
-    const zoomButton = document.getElementById('zoom');
+    
+//variables for pdf viewer
+const zoomButton = document.getElementById('zoom');
 const input = document.getElementById('inputFile');
 const openFile = document.getElementById('openPDF');
 const currentPage = document.getElementById('current_page');
 const viewer = document.querySelector('.pdf-viewer');
+
+//variable with empty object to store information of current pdf 
 let currentPDF = {}
 
+
+//default setting when pdf is opened
 function resetCurrentPDF() {
 	currentPDF = {
 		file: null,
@@ -16,11 +22,12 @@ function resetCurrentPDF() {
 	}
 }
 
-
+//event listener to open file/pdf when button is clicked
 openFile.addEventListener('click', () => {
 	input.click();
 });
 
+//check if file is pdf file, read content of loaded pdf
 input.addEventListener('change', event => {
 	const inputFile = event.target.files[0];
 	if (inputFile.type == 'application/pdf') {
@@ -36,7 +43,7 @@ input.addEventListener('change', event => {
 	}
 });
 
-
+//on zoom button clicked pdf rendered
 zoomButton.addEventListener('input', () => {
 	if (currentPDF.file) {
 		document.getElementById('zoomValue').innerHTML = zoomButton.value + "%";
@@ -45,6 +52,8 @@ zoomButton.addEventListener('input', () => {
 	}
 });
 
+
+//on next button clicked, check if there is next page and next page is shown 
 document.getElementById('next').addEventListener('click', () => {
 	const isValidPage = currentPDF.currentPage < currentPDF.countOfPages;
 	if (isValidPage) {
@@ -53,6 +62,7 @@ document.getElementById('next').addEventListener('click', () => {
 	}
 });
 
+//on previous button clicked, check if there is previous page (in case on first page, there is none) and previous page is shown
 document.getElementById('previous').addEventListener('click', () => {
 	const isValidPage = currentPDF.currentPage - 1 > 0;
 	if (isValidPage) {
@@ -61,9 +71,12 @@ document.getElementById('previous').addEventListener('click', () => {
 	}
 });
 
+
+//pdf is loaded with default setting
 function loadPDF(data) {
 	const pdfFile = pdfjsLib.getDocument(data);
 	resetCurrentPDF();
+	//promise gives doc object; set viewer as visible and hide title
 	pdfFile.promise.then((doc) => {
 		currentPDF.file = doc;
 		currentPDF.countOfPages = doc.numPages;
@@ -74,6 +87,7 @@ function loadPDF(data) {
 
 }
 
+//pdf rendered to viewer, pdf shown
 function renderCurrentPage() {
 	currentPDF.file.getPage(currentPDF.currentPage).then((page) => {
 		var context = viewer.getContext('2d');

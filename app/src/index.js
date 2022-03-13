@@ -19,8 +19,8 @@ function resetCurrentPDF() {
 		file: null,
 		countOfPages: 0,
 		currentPage: 1,
-		zoom: 1.5
-	}
+		zoom: 1.5,
+	};
 }
 
 //event listener to open file/pdf when button is clicked
@@ -31,17 +31,17 @@ openFile.addEventListener('click', () => {
 //check if file is pdf file, read content of loaded pdf
 input.addEventListener('change', event => {
 	const inputFile = event.target.files[0];
-	if (inputFile.type == 'application/pdf') {
+	if (inputFile.type === 'application/pdf') {
 		const reader = new FileReader();
 		reader.readAsDataURL(inputFile);
 		reader.onload = () => {
 			loadPDF(reader.result);
 			zoomButton.disabled = false;
-		}
+		};
 	}
 	else {
-		alert("The file you are trying to open is not a pdf file!")
-	}
+		alert("The file you are trying to open is not a pdf file!"),
+	},
 });
 
 //on zoom button clicked pdf rendered

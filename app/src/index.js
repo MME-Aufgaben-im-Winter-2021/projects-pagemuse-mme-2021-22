@@ -19,8 +19,8 @@ function resetCurrentPDF() {
 		file: null,
 		countOfPages: 0,
 		currentPage: 1,
-		zoom: 1.5,
-	};
+		zoom: 1.5
+	}
 }
 
 //event listener to open file/pdf when button is clicked
@@ -31,7 +31,7 @@ openFile.addEventListener('click', () => {
 //check if file is pdf file, read content of loaded pdf
 input.addEventListener('change', event => {
 	const inputFile = event.target.files[0];
-	if (inputFile.type === 'application/pdf') {
+	if (inputFile.type == 'application/pdf') {
 		const reader = new FileReader();
 		reader.readAsDataURL(inputFile);
 		reader.onload = () => {
@@ -40,8 +40,8 @@ input.addEventListener('change', event => {
 		};
 	}
 	else {
-		alert("The file you are trying to open is not a pdf file!"),
-	},
+		alert("The file you are trying to open is not a pdf file!")
+	}
 });
 
 //on zoom button clicked pdf rendered
@@ -118,7 +118,7 @@ appwrite
 
 // Register User
 appwrite
-    .account.create('unique()', 'me2@example.com', 'password', 'Hansi')
+    .account.create('unique()', 'me2@example.com', 'password', 'Test')
         .then(response => {
             console.log(response);
         }, error => {

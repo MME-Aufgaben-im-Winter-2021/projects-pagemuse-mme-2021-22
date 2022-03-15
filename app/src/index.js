@@ -93,7 +93,7 @@ function renderCurrentPage() {
 		viewer.height = viewport.height;
 		viewer.width = viewport.width;
 		
-		renderContext = {
+		var renderContext = {
 			canvasContext: context,
 			viewport: viewport,
 		};
@@ -108,25 +108,17 @@ init();
 
 // Init your Web SDK
 // eslint-disable-next-line no-undef
-const appwrite = new Appwrite();
+const sdk = new Appwrite();
 
-appwrite
-    .setEndpoint("https://appwrite.software-engineering.education/v1") // Your Appwrite Endpoint
-    .setProject("6206643994b46f11896b"); // Your project ID
+sdk
+    .setEndpoint('https://appwrite.software-engineering.education/v1') // Your API Endpoint
+    .setProject('6206643994b46f11896b'); // Your project ID
 
-// Register User
-appwrite
-    .account.create("unique()", "linh@example.com", "password", "Linh")
-        .then(response => {
-            console.log(response);
-        }, error => {
-            console.log(error);
-        });
+//Login 
+let promise = sdk.account.createSession(document.getElementById("username").value, document.getElementById("password").value);
 
-// Subscribe to files channel
-appwrite.subscribe("files", response => {
-    if(response.event === "storage.files.create") {
-        // Log when a new file is uploaded
-        console.log(response.payload);
-    }
+promise.then(function (response) {
+    console.log(response); // Success
+}, function (error) {
+    console.log(error); // Failure
 });

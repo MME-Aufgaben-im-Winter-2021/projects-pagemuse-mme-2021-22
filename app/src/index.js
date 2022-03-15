@@ -89,15 +89,14 @@ function loadPDF(data) {
 function renderCurrentPage() {
 	currentPDF.file.getPage(currentPDF.currentPage).then((page) => {
 		var context = viewer.getContext("2d"),
-			viewport = page.getViewport({ scale: currentPDF.zoom });
+		viewport = page.getViewport({ scale: currentPDF.zoom});
 		viewer.height = viewport.height;
 		viewer.width = viewport.width;
-		// eslint-disable-next-line no-undef
+		
 		renderContext = {
 			canvasContext: context,
 			viewport: viewport,
 		};
-		// eslint-disable-next-line no-undef
 		page.render(renderContext);
 	});
 	currentPage.innerHTML = currentPDF.currentPage + " of " + currentPDF.countOfPages;

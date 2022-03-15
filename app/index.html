@@ -39,11 +39,11 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <!-- Left links -->
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
+          <li id="btn_documentView" class="nav-item">
             <a class="nav-link" href="#">Dokumente</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Schreibtisch</a>
+          <li id="btn_deskView" class="nav-item">
+            <a class="nav-link" href="#">Schreibtisch</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
@@ -160,7 +160,7 @@
 
       <!-- Dokumentenansicht -->
 
-      <div class="col py-3" hidden>
+      <div id="documentView" class="col py-3">
 
         <div id="zuletztVerwendet" class="bg-light">
           <div class="p-2"><a>Zuletzt verwendete Dateien:</a></div>
@@ -285,9 +285,9 @@
       <!-- Schreibtischansicht -->
 
      <!--Login-->
-      <div class="col py-3">
+      <div id="deskView" class="col py-3" hidden>
 
-        <form>
+        <form hidden>
           <input class="form-control me-2" id="username" type="search" placeholder="Benutzername" aria-label="Search">
           <input class="form-control me-2" id="password" type="search" placeholder="Passwort" aria-label="Search">
         </form>

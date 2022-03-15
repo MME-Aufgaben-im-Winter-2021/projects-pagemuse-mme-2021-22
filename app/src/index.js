@@ -1,14 +1,17 @@
 /*eslint-env browser */
 function init() {
     console.log("### Starting MME Project ###");
-    
+
 //variables for pdf viewer
 const zoomButton = document.getElementById("zoom"),
     input = document.getElementById("inputFile"),
 	openFile = document.getElementById("openPDF"),
 	currentPage = document.getElementById("current_page"),
-	viewer = document.querySelector(".pdf-viewer");
-
+	viewer = document.querySelector(".pdf-viewer"),
+	//for document view and desk view
+	btnDocumentView = document.getElementById("btn_documentView"),
+	btnDeskView = document.getElementById("btn_deskView");
+	
 //variable with empty object to store information of current pdf 
 let currentPDF = {};
 
@@ -25,6 +28,18 @@ function resetCurrentPDF() {
 //event listener to open file/pdf when button is clicked
 openFile.addEventListener("click", () => {
 	input.click();
+});
+
+//event listener to open toggle to Document View when button is clicked
+btnDocumentView.addEventListener("click", () => {
+	document.getElementById("deskView").hidden = true;
+	document.getElementById("documentView").hidden = false;
+});
+
+//event listener to open toggle to Desk View when button is clicked
+btnDeskView.addEventListener("click", () => {
+	document.getElementById("documentView").hidden = true;
+	document.getElementById("deskView").hidden = false;
 });
 
 //check if file is pdf file, read content of loaded pdf

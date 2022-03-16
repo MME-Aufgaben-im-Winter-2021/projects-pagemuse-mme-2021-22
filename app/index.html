@@ -284,7 +284,7 @@
 
       <!-- Schreibtischansicht -->
 
-     <!--Login-->
+      <!--Login-->
       <div id="deskView" class="col py-3" hidden>
 
         <form hidden>
@@ -415,7 +415,7 @@
                     </button>
                   </div>
 
-                  <div class="pt-2">
+                  <div id="btn_commentIcon" class="pt-2">
                     <button type="button" class="btn btn-secondary">
                       <img src="./resources/svg/chat-right-text-fill.svg" alt="" width="20" height="20">
                     </button>
@@ -452,255 +452,59 @@
             </div>
 
             <!-- Kommentarfeld -->
-            <div class="col overflow-auto" style="height: 850px;">
-
-              <!-- Ganzes Kommentarfeld-->
-              <div class="card mb-2">
-                <div class="card-body">
-
-                  <div>
-                    <div class="row form-group">
-                      <div class="col-sm-2 profil m-1">
-                        <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle" height="40"
-                          alt="Black and White Portrait of a Man" loading="lazy" />
-                      </div>
-                      <label class="col col-form-label">Name des Kommentators</label>
-                    </div>
-                    <div class="input-group">
-                      <textarea class="form-control" placeholder="Kommentieren..." aria-label="Kommentar"></textarea>
-                    </div>
-
-                    <div class="form-group row mt-1">
-                      <label class="col-sm-5 col-form-label">Sichtbar für</label>
-                      <div class="col-sm-2">
-                        <select class="form-control form-control-sm" style="width: 146px;">
-                          <option>Jeden</option>
-                          <option>Nur Uploader</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div>
-                      <button type="button" class="btn btn-sm btn-dark">Kommentieren</button>
-                      <button type="button" class="btn btn-sm btn-outline-dark">Abbrechen</button>
-                    </div>
-                  </div>
-
-                  <div class="mt-2">
-                    <div>
-                      <small class="ml-5">Name des Antwortes</small>
-                    </div>
-                    <div class="input-group ml-5" style="width: 238px;">
-                      <textarea class="form-control" placeholder="Auf Kommentar antworten"
-                        aria-label="Kommentar"></textarea>
-                    </div>
-                    <div class="ml-5">
-                      <button type="button" class="btn btn-sm btn-dark mt-1">Kommentieren</button>
-                      <button type="button" class="btn btn-sm btn-outline-dark mt-1">Abbrechen</button>
-                    </div>
-                  </div>
-                  <button type="button" class="btn btn-sm btn-dark mt-1">Antworten</button>
-                </div>
-              </div>
-
-              <!-- Kommentieren-->
-              <div class="card mb-2">
-                <div class="card-body">
-
-                  <div>
-                    <div class="row form-group">
-                      <div class="col-sm-2 profil m-1">
-                        <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle" height="40"
-                          alt="Black and White Portrait of a Man" loading="lazy" />
-                      </div>
-                      <label class="col col-form-label">Name des Kommentators</label>
-                    </div>
-                    <div class="input-group">
-                      <textarea class="form-control" placeholder="Kommentieren..." aria-label="Kommentar"></textarea>
-                    </div>
-
-                    <div class="form-group row mt-1">
-                      <label class="col-sm-5 col-form-label">Sichtbar für</label>
-                      <div class="col-sm-2">
-                        <select class="form-control form-control-sm" style="width: 146px;">
-                          <option>Jeden</option>
-                          <option>Nur Uploader</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div>
-                      <button type="button" class="btn btn-sm btn-dark">Kommentieren</button>
-                      <button type="button" class="btn btn-sm btn-outline-dark">Abbrechen</button>
-                    </div>
-                  </div>
-
-                  <div class="mt-2" hidden>
-                    <div>
-                      <small class="ml-5">Name des Antwortes</small>
-                    </div>
-                    <div class="input-group ml-5" style="width: 238px;">
-                      <textarea class="form-control" placeholder="Auf Kommentar antworten"
-                        aria-label="Kommentar"></textarea>
-                    </div>
-                    <div class="ml-5">
-                      <button type="button" class="btn btn-sm btn-dark mt-1">Kommentieren</button>
-                      <button type="button" class="btn btn-sm btn-outline-dark mt-1">Abbrechen</button>
-                    </div>
-                  </div>
-                  <button type="button" class="btn btn-sm btn-dark mt-1" hidden>Antworten</button>
-                </div>
-              </div>
-
-              <!-- Sichtbarer Kommentar-->
-              <div class="card mb-2">
-                <div class="card-body">
-
-                  <div>
-                    <div class="row form-group">
-                      <div class="col-sm-2 profil m-1">
-                        <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle" height="40"
-                          alt="Black and White Portrait of a Man" loading="lazy" />
-                      </div>
-                      <label class="col col-form-label">Name des Kommentators</label>
-                    </div>
-                    <div class="input-group">
-                      <textarea class="form-control" placeholder="Kommentieren..." aria-label="Kommentar" disabled> Hier steht der Kommentar, auf den man jetzt antworten kann</textarea>
-                    </div>
-
-                    <div class="form-group row mt-1" hidden>
-                      <label class="col-sm-5 col-form-label">Sichtbar für</label>
-                      <div class="col-sm-2">
-                        <select class="form-control form-control-sm" style="width: 146px;">
-                          <option>Jeden</option>
-                          <option>Nur Uploader</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div hidden>
-                      <button type="button" class="btn btn-sm btn-dark">Kommentieren</button>
-                      <button type="button" class="btn btn-sm btn-outline-dark">Abbrechen</button>
-                    </div>
-                  </div>
-
-                  <div class="mt-2" hidden>
-                    <div>
-                      <small class="ml-5">Name des Antwortes</small>
-                    </div>
-                    <div class="input-group ml-5" style="width: 238px;">
-                      <textarea class="form-control" placeholder="Auf Kommentar antworten"
-                        aria-label="Kommentar"></textarea>
-                    </div>
-                    <div class="ml-5">
-                      <button type="button" class="btn btn-sm btn-dark mt-1">Kommentieren</button>
-                      <button type="button" class="btn btn-sm btn-outline-dark mt-1">Abbrechen</button>
-                    </div>
-                  </div>
-                  <button type="button" class="btn btn-sm btn-dark mt-1">Antworten</button>
-                </div>
-              </div>
-
-              <!-- Antworten auf Kommentar-->
-              <div class="card mb-2">
-                <div class="card-body">
-
-                  <div>
-                    <div class="row form-group">
-                      <div class="col-sm-2 profil m-1">
-                        <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle" height="40"
-                          alt="Black and White Portrait of a Man" loading="lazy" />
-                      </div>
-                      <label class="col col-form-label">Name des Kommentators</label>
-                    </div>
-                    <div class="input-group">
-                      <textarea class="form-control" placeholder="Kommentieren..." aria-label="Kommentar" disabled> Hier steht der Kommentar, auf den man jetzt antworten kann</textarea>
-                    </div>
-
-                    <div class="form-group row mt-1" hidden>
-                      <label class="col-sm-5 col-form-label">Sichtbar für</label>
-                      <div class="col-sm-2">
-                        <select class="form-control form-control-sm" style="width: 146px;">
-                          <option>Jeden</option>
-                          <option>Nur Uploader</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div hidden>
-                      <button type="button" class="btn btn-sm btn-dark">Kommentieren</button>
-                      <button type="button" class="btn btn-sm btn-outline-dark">Abbrechen</button>
-                    </div>
-                  </div>
-
-                  <div class="mt-2">
-                    <div>
-                      <small class="ml-5">Name des Antwortes</small>
-                    </div>
-                    <div class="input-group ml-5" style="width: 238px;">
-                      <textarea class="form-control" placeholder="Auf Kommentar antworten"
-                        aria-label="Kommentar"></textarea>
-                    </div>
-                    <div class="ml-5">
-                      <button type="button" class="btn btn-sm btn-dark mt-1">Kommentieren</button>
-                      <button type="button" class="btn btn-sm btn-outline-dark mt-1">Abbrechen</button>
-                    </div>
-                  </div>
-                  <button type="button" class="btn btn-sm btn-dark mt-1" hidden>Antworten</button>
-                </div>
-              </div>
-
-              <!-- Sichtbarer Kommentar mit Antwort-->
-              <div class="card mb-2">
-                <div class="card-body">
-
-                  <div>
-                    <div class="row form-group">
-                      <div class="col-sm-2 profil m-1">
-                        <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle" height="40"
-                          alt="Black and White Portrait of a Man" loading="lazy" />
-                      </div>
-                      <label class="col col-form-label">Name des Kommentators</label>
-                    </div>
-                    <div class="input-group">
-                      <textarea class="form-control" placeholder="Kommentieren..." aria-label="Kommentar" disabled> Hier steht der Kommentar, auf den man jetzt antworten kann</textarea>
-                    </div>
-
-                    <div class="form-group row mt-1" hidden>
-                      <label class="col-sm-5 col-form-label">Sichtbar für</label>
-                      <div class="col-sm-2">
-                        <select class="form-control form-control-sm" style="width: 146px;">
-                          <option>Jeden</option>
-                          <option>Nur Uploader</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div hidden>
-                      <button type="button" class="btn btn-sm btn-dark">Kommentieren</button>
-                      <button type="button" class="btn btn-sm btn-outline-dark">Abbrechen</button>
-                    </div>
-                  </div>
-
-                  <div class="mt-2">
-                    <div>
-                      <small class="ml-5">Name des Antwortes</small>
-                    </div>
-                    <div class="input-group ml-5" style="width: 238px;">
-                      <textarea class="form-control" placeholder="Auf Kommentar antworten"
-                        aria-label="Kommentar" disabled>Hier steht die Antwort auf den Kommentar</textarea>
-                    </div>
-                    <div class="ml-5" hidden>
-                      <button type="button" class="btn btn-sm btn-dark mt-1">Kommentieren</button>
-                      <button type="button" class="btn btn-sm btn-outline-dark mt-1">Abbrechen</button>
-                    </div>
-                  </div>
-                  <button type="button" class="btn btn-sm btn-dark mt-1">Antworten</button>
-                </div>
-              </div>
-
+            <div id="commentsection" class="col overflow-auto" style="height: 850px;">
             </div>
 
+            <!-- template Kommentarfeld-->
+            <template id="comment-template">
+              <div class="card mb-2">
+                <div class="card-body">
+
+                  <div>
+                    <div class="row form-group">
+                      <div class="col-sm-2 profil m-1">
+                        <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle" height="40"
+                          alt="Black and White Portrait of a Man" loading="lazy" />
+                      </div>
+                      <label class="col col-form-label">Name des Kommentators</label>
+                    </div>
+                    <div class="input-group">
+                      <textarea id="textareaComment" class="form-control" placeholder="Kommentieren..." aria-label="Kommentar" disabled></textarea>
+                    </div>
+
+                    <div id="commentObservable" class="form-group row mt-1">
+                      <label class="col-sm-5 col-form-label">Sichtbar für</label>
+                      <div class="col-sm-2">
+                        <select class="form-control form-control-sm" style="width: 146px;">
+                          <option>Jeden</option>
+                          <option>Nur Uploader</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div id="commentButtons">
+                      <button id="btn_commentComment" type="button" class="btn btn-sm btn-dark">Kommentieren</button>
+                      <button id="btn_commentQuit" type="button" class="btn btn-sm btn-outline-dark">Abbrechen</button>
+                    </div>
+                  </div>
+
+                  <div id="commentResponse"class="mt-2" hidden>
+                    <div>
+                      <small class="ml-5">Name des Antwortes</small>
+                    </div>
+                    <div class="input-group ml-5" style="width: 238px;">
+                      <textarea id="textareaCommentResponse" class="form-control" placeholder="Auf Kommentar antworten"
+                        aria-label="Kommentar"></textarea>
+                    </div>
+                    <div class="ml-5">
+                      <button type="button" class="btn btn-sm btn-dark mt-1">Kommentieren</button>
+                      <button type="button" class="btn btn-sm btn-outline-dark mt-1">Abbrechen</button>
+                    </div>
+                  </div>
+                  <button i="btn_commentResponse" type="button" class="btn btn-sm btn-dark mt-1" hidden>Antworten</button>
+                </div>
+              </div>
+            </template>
           </div>
 
           <div class="row">

@@ -126,7 +126,7 @@ function init() {
 			viewer.height = viewport.height;
 			viewer.width = viewport.width;
 
-			var renderContext = {
+			let renderContext = {
 				canvasContext: context,
 				viewport: viewport,
 			};
@@ -144,8 +144,8 @@ init();
 const sdk = new Appwrite();
 
 sdk
-	.setEndpoint('https://appwrite.software-engineering.education/v1') // Your API Endpoint
-	.setProject('6206643994b46f11896b'); // Your project ID
+	.setEndpoint("https://appwrite.software-engineering.education/v1") // Your API Endpoint
+	.setProject("6206643994b46f11896b"); // Your project ID
 
 //Login 
 let promise = sdk.account.createSession(document.getElementById("username").value, document.getElementById("password").value);

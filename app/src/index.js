@@ -5,7 +5,7 @@ function init() {
 	//variables for pdf viewer
 	const zoomButton = document.getElementById("zoom"),
 		input = document.getElementById("inputFile"),
-		openFile = document.getElementById("openPDF"),
+		openPdf = document.getElementById("openPDF"),
 		currentPage = document.getElementById("current_page"),
 		viewer = document.querySelector(".pdf-viewer"),
 		//for document view and desk view
@@ -24,12 +24,12 @@ function init() {
 			file: null,
 			countOfPages: 0,
 			currentPage: 1,
-			zoom: 1.5,
+			zoom: 1.0,
 		};
 	}
 
 	//event listener to open file/pdf when button is clicked
-	openFile.addEventListener("click", () => {
+	openPdf.addEventListener("click", () => {
 		input.click();
 	});
 
@@ -144,14 +144,14 @@ init();
 const sdk = new Appwrite();
 
 sdk
-	.setEndpoint("https://appwrite.software-engineering.education/v1") // Your API Endpoint
-	.setProject("6206643994b46f11896b"); // Your project ID
+    .setEndpoint('https://appwrite.software-engineering.education/v1') // Your API Endpoint
+    .setProject('6206643994b46f11896b'); // Your project ID
 
 //Login 
 let promise = sdk.account.createSession(document.getElementById("username").value, document.getElementById("password").value);
 
 promise.then(function (response) {
-	console.log(response); // Success
+    console.log(response); // Success
 }, function (error) {
-	console.log(error); // Failure
+    console.log(error); // Failure
 });

@@ -22,6 +22,7 @@ promise.then(function (response) {
 });
 });
 
+//Create new user
 btnRegister.addEventListener("click", () => {
 let promise2 = sdk.account.create('neu', document.getElementById("registerUsername").value, document.getElementById("registerPassword").value);
 
@@ -32,6 +33,7 @@ promise2.then(function (response) {
 });
 });
 
+//Load in Storage via Upload Button Dokumentenansicht
 let promise3 = sdk.storage.createFile('90', document.getElementById('inpFile').files[0]);
 
 promise3.then(function (response) {
@@ -39,6 +41,8 @@ promise3.then(function (response) {
 }, function (error) {
     console.log(error); // Failure
 });
+
+//Load in Storage via Upload Button Schreibtisch
 let promise4 = sdk.storage.createFile('101', document.getElementById('inputFile').files[0]);
 
 promise4.then(function (response) {
@@ -46,8 +50,6 @@ promise4.then(function (response) {
 }, function (error) {
     console.log(error); // Failure
 });
-
-
 
  // Resource URL
 	//variables for pdf viewer

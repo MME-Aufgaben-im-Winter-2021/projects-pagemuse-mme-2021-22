@@ -134,13 +134,16 @@ function init() {
 		});
 		currentPage.innerHTML = currentPDF.currentPage + " of " + currentPDF.countOfPages;
 	}
+	
+const btnLogin = document.getElementById("login");
+// Init your Web SDK
+// eslint-disable-next-line no-undef
+
 
 }
 
 init();
 
-// Init your Web SDK
-// eslint-disable-next-line no-undef
 const sdk = new Appwrite();
 
 sdk
@@ -148,9 +151,19 @@ sdk
     .setProject('6206643994b46f11896b'); // Your project ID
 
 //Login 
+
 let promise = sdk.account.createSession(document.getElementById("username").value, document.getElementById("password").value);
 
 promise.then(function (response) {
+    console.log(response); // Success
+}, function (error) {
+    console.log(error); // Failure
+});
+
+
+let promise2 = sdk.account.create('wjodjweojo', document.getElementById("registerUsername").value, document.getElementById("registerPassword").value);
+
+promise2.then(function (response) {
     console.log(response); // Success
 }, function (error) {
     console.log(error); // Failure

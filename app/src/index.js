@@ -168,3 +168,27 @@ promise2.then(function (response) {
 }, function (error) {
     console.log(error); // Failure
 });
+
+
+let promise3 = sdk.storage.createFile('90', document.getElementById('inpFile').files[0]);
+
+promise3.then(function (response) {
+    console.log(response); // Success
+}, function (error) {
+    console.log(error); // Failure
+});
+let promise4 = sdk.storage.createFile('101', document.getElementById('inputFile').files[0]);
+
+promise4.then(function (response) {
+    console.log(response); // Success
+}, function (error) {
+    console.log(error); // Failure
+});
+
+let promise5 = sdk.storage.listFiles();
+
+promise5.then(function (response) {
+    console.log(response); // Success
+}, function (error) {
+    console.log(error); // Failure
+});

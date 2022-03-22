@@ -51,6 +51,16 @@ promise4.then(function (response) {
     console.log(error); // Failure
 });
 
+//Daten bekommen über derzeit eingeloggte Person
+let promise = sdk.account.get(name);
+
+promise.then(function (response) {
+    console.log(response); // Success
+}, function (error) {
+    console.log(error); // Failure
+});
+
+
  // Resource URL
 	//variables for pdf viewer
 	const zoomButton = document.getElementById("zoom"),

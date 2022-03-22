@@ -1,15 +1,14 @@
 /*eslint-env browser */
 function init() {
 	
-
 //Appwrite
 const sdk = new Appwrite(),
  btnLogin = document.getElementById("login"),
  btnRegister = document.getElementById("register");
 
 sdk
-    .setEndpoint('https://appwrite.software-engineering.education/v1') // Your API Endpoint
-    .setProject('6206643994b46f11896b'); // Your project ID
+    .setEndpoint("https://appwrite.software-engineering.education/v1") // Your API Endpoint
+    .setProject("6206643994b46f11896b"); // Your project ID
 
 //Login 
 btnLogin.addEventListener("click", () => {
@@ -24,7 +23,7 @@ promise.then(function (response) {
 
 //Create new user
 btnRegister.addEventListener("click", () => {
-let promise2 = sdk.account.create('neu', document.getElementById("registerUsername").value, document.getElementById("registerPassword").value);
+let promise2 = sdk.account.create("neu", document.getElementById("registerUsername").value, document.getElementById("registerPassword").value);
 
 promise2.then(function (response) {
     console.log(response); // Success
@@ -34,7 +33,7 @@ promise2.then(function (response) {
 });
 
 //Load in Storage via Upload Button Dokumentenansicht
-let promise3 = sdk.storage.createFile('90', document.getElementById('inpFile').files[0]);
+let promise3 = sdk.storage.createFile("90", document.getElementById("inpFile").files[0]);
 
 promise3.then(function (response) {
     console.log(response); // Success
@@ -43,7 +42,7 @@ promise3.then(function (response) {
 });
 
 //Load in Storage via Upload Button Schreibtisch
-let promise4 = sdk.storage.createFile('101', document.getElementById('inputFile').files[0]);
+let promise4 = sdk.storage.createFile("101", document.getElementById("inputFile").files[0]);
 
 promise4.then(function (response) {
     console.log(response); // Success
@@ -52,14 +51,13 @@ promise4.then(function (response) {
 });
 
 //Daten bekommen über derzeit eingeloggte Person
-let promise = sdk.account.get(name);
+let promise5 = sdk.account.get();
 
-promise.then(function (response) {
+promise5.then(function (response) {
     console.log(response); // Success
 }, function (error) {
     console.log(error); // Failure
 });
-
 
  // Resource URL
 	//variables for pdf viewer

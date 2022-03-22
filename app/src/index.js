@@ -1,7 +1,55 @@
 /*eslint-env browser */
 function init() {
-	console.log("### Starting MME Project ###");
+	
 
+//Appwrite
+const sdk = new Appwrite(),
+ btnLogin = document.getElementById("login"),
+ btnRegister = document.getElementById("register");
+
+sdk
+    .setEndpoint('https://appwrite.software-engineering.education/v1') // Your API Endpoint
+    .setProject('6206643994b46f11896b'); // Your project ID
+
+//Login 
+btnLogin.addEventListener("click", () => {
+let promise = sdk.account.createSession(document.getElementById("username").value, document.getElementById("password").value);
+
+promise.then(function (response) {
+    console.log(response); // Success
+}, function (error) {
+    console.log(error); // Failure
+});
+});
+
+btnRegister.addEventListener("click", () => {
+let promise2 = sdk.account.create('neu', document.getElementById("registerUsername").value, document.getElementById("registerPassword").value);
+
+promise2.then(function (response) {
+    console.log(response); // Success
+}, function (error) {
+    console.log(error); // Failure
+});
+});
+
+let promise3 = sdk.storage.createFile('90', document.getElementById('inpFile').files[0]);
+
+promise3.then(function (response) {
+    console.log(response); // Success
+}, function (error) {
+    console.log(error); // Failure
+});
+let promise4 = sdk.storage.createFile('101', document.getElementById('inputFile').files[0]);
+
+promise4.then(function (response) {
+    console.log(response); // Success
+}, function (error) {
+    console.log(error); // Failure
+});
+
+
+
+ // Resource URL
 	//variables for pdf viewer
 	const zoomButton = document.getElementById("zoom"),
 		input = document.getElementById("inputFile"),
@@ -134,61 +182,8 @@ function init() {
 		});
 		currentPage.innerHTML = currentPDF.currentPage + " of " + currentPDF.countOfPages;
 	}
-	
-const btnLogin = document.getElementById("login");
-// Init your Web SDK
-// eslint-disable-next-line no-undef
-
 
 }
 
 init();
 
-const sdk = new Appwrite();
-
-sdk
-    .setEndpoint('https://appwrite.software-engineering.education/v1') // Your API Endpoint
-    .setProject('6206643994b46f11896b'); // Your project ID
-
-//Login 
-
-let promise = sdk.account.createSession(document.getElementById("username").value, document.getElementById("password").value);
-
-promise.then(function (response) {
-    console.log(response); // Success
-}, function (error) {
-    console.log(error); // Failure
-});
-
-
-let promise2 = sdk.account.create('wjodjweojo', document.getElementById("registerUsername").value, document.getElementById("registerPassword").value);
-
-promise2.then(function (response) {
-    console.log(response); // Success
-}, function (error) {
-    console.log(error); // Failure
-});
-
-
-let promise3 = sdk.storage.createFile('90', document.getElementById('inpFile').files[0]);
-
-promise3.then(function (response) {
-    console.log(response); // Success
-}, function (error) {
-    console.log(error); // Failure
-});
-let promise4 = sdk.storage.createFile('101', document.getElementById('inputFile').files[0]);
-
-promise4.then(function (response) {
-    console.log(response); // Success
-}, function (error) {
-    console.log(error); // Failure
-});
-
-let promise5 = sdk.storage.listFiles();
-
-promise5.then(function (response) {
-    console.log(response); // Success
-}, function (error) {
-    console.log(error); // Failure
-});

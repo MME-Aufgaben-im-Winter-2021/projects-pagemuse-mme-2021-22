@@ -24,18 +24,18 @@ function init() {
 		.setProject("6206643994b46f11896b"); // Your project ID
 	
 	//Login 
-	btnLogin.addEventListener("click", () => {
-	let promise = sdk.account.createSession(document.getElementById("username").value, document.getElementById("password").value);
 	
-	promise.then(function (response) {
+	let promise8 = sdk.account.createSession(document.getElementById("username").value, document.getElementById("password").value);
+	
+	promise8.then(function (response) {
 		console.log(response); // Success
 	}, function (error) {
 		console.log(error); // Failure
 	});
-	});
+	
 	
 	//Create new user
-	btnRegister.addEventListener("click", () => {
+	
 	let promise2 = sdk.account.create("unique()", document.getElementById("registerUsername").value, document.getElementById("registerPassword").value);
 	
 	promise2.then(function (response) {
@@ -43,7 +43,7 @@ function init() {
 	}, function (error) {
 		console.log(error); // Failure
 	});
-	});
+	
 	
 	//Load in Storage via Upload Button Dokumentenansicht
 	let promise3 = sdk.storage.createFile("unique()", document.getElementById("inpFile").files[0]),

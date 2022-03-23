@@ -66,6 +66,7 @@
         </div>
       </div>
       <!-- Right elements -->
+
       <!-- Login and registration -->
       <form>
         <input class="form-control me-2" id="username" type="search" placeholder="Benutzername" aria-label="Search">
@@ -83,6 +84,7 @@
     <!-- Container wrapper -->
   </nav>
   <!-- Navbar -->
+
 
   <div class="container-fluid">
     <div class="row flex-nowrap">
@@ -310,7 +312,7 @@
 
             <div class="col col-auto">
               <button id="openPDF" class="btn btn-secondary" style="width: 72px; height: 54px">
-                <span>Upload</span>
+                <span>Open</span>
               </button>
               <input type="file" id="inputFile" hidden>
             </div>
@@ -319,33 +321,30 @@
             <div class="col">
               <div class="group">
                 <div class="group-prepend">
-                  <div class="input-group-text" style="width: 587px;">
+                  <div class="input-group-text" style="width: 650px;">
                     <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                      
+                      <div class="btn-group mr-2" role="group" aria-label="First group">
+                        <button type="button" class="btn btn-secondary">
+                          <img src="./resources/svg/zoom-in.svg" alt="" width="20" height="20">
+                        </button>
+                        <button type="button" class="btn btn-secondary">
+                          <img src="./resources/svg/zoom-out.svg" alt="" width="20" height="20">
+                        </button>
+                      </div>
 
-                      <div class="col-xs-12" style="width: 0px;"></div>
+                      <div class="col-xs-12" style="width: 82px;"></div>
 
                       <li class="btn btn-secondary">
                         <span id="zoomValue">100%</span>
-                        <input type="range" id="zoom" name="cowbell" min="100" max="300" value="100" step="50" disabled>
+                        <input type="range" id="zoom" name="cowbell" min="100" max="300" value="150" step="50" disabled>
                       </li>
 
-                      <div class="col-xs-12" style="width: 60px;"></div>
+                      <div class="col-xs-12" style="width: 130px;"></div>
 
-                      <div class="btn-group" role="group" aria-label="Second group">
+                      <div id="btn_commentIcon">
                         <button type="button" class="btn btn-secondary">
-                          <img src="./resources/svg/file-earmark-arrow-down.svg" alt="" width="20" height="20">
+                          <img src="./resources/svg/chat-right-text-fill.svg" alt="" width="20" height="20">
                         </button>
-                        <button type="button" class="btn btn-secondary">
-                          <img src="./resources/svg/file-earmark-arrow-down-fill.svg" alt="" width="20" height="20">
-                        </button>
-                        <div id="btn_commentIcon">
-                          <button type="button" class="btn btn-secondary">
-                            <img src="./resources/svg/chat-right-text-fill.svg" alt="" width="20" height="20">
-                          </button>
-                        </div>
-                        </div>
-      
                       </div>
                     </div>
                   </div>
@@ -414,8 +413,16 @@
                     </button>
                   </div>
 
-                  
-                  <div class="col-xs-12" style="height:130px;"></div>
+                  <div class="col-xs-12" style="height:100px;"></div>
+
+                  <div class="btn-group-vertical pt-2">
+                    <button type="button" class="btn btn-secondary">
+                      <img src="./resources/svg/file-earmark-arrow-down.svg" alt="" width="20" height="20">
+                    </button>
+                    <button type="button" class="btn btn-secondary">
+                      <img src="./resources/svg/file-earmark-arrow-down-fill.svg" alt="" width="20" height="20">
+                    </button>
+                  </div>
 
                   <div class="pt-5 pb-1">
                     <button type="button" class="btn btn-secondary">

@@ -7,7 +7,7 @@ function init() {
 	btnLogin = document.getElementById("login"),
 	btnRegister = document.getElementById("register"),
 	//for PDF viewer
-	zoomButton = document.getElementById("zoom"),
+	btnZoom = document.getElementById("zoom"),
 	input = document.getElementById("inputFile"),
 	openPdf = document.getElementById("openPDF"),
 	currentPage = document.getElementById("current_page"),
@@ -128,17 +128,17 @@ function init() {
 				reader.readAsDataURL(inputFile);
 				reader.onload = () => {
 					loadPDF(reader.result);
-					zoomButton.disabled = false;
+					btnZoom.disabled = false;
 				};
 			}
 	
 		});
 	
 		//on zoom button clicked pdf rendered
-		zoomButton.addEventListener("input", () => {
+		btnZoom.addEventListener("input", () => {
 			if (currentPDF.file) {
-				document.getElementById("zoomValue").innerHTML = zoomButton.value + "%";
-				currentPDF.zoom = parseInt(zoomButton.value) / 100;
+				document.getElementById("zoomValue").innerHTML = btnZoom.value + "%";
+				currentPDF.zoom = parseInt(btnZoom.value) / 100;
 				renderCurrentPage();
 			}
 		});

@@ -24,7 +24,6 @@ function init() {
 		.setProject("6206643994b46f11896b"); // Your project ID
 	
 	//Login 
-	
 	let promise8 = sdk.account.createSession(document.getElementById("username").value, document.getElementById("password").value);
 	
 	promise8.then(function (response) {

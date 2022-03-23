@@ -36,7 +36,7 @@ function init() {
 	
 	//Create new user
 	btnRegister.addEventListener("click", () => {
-	let promise2 = sdk.account.create("neu", document.getElementById("registerUsername").value, document.getElementById("registerPassword").value);
+	let promise2 = sdk.account.create("unique()", document.getElementById("registerUsername").value, document.getElementById("registerPassword").value);
 	
 	promise2.then(function (response) {
 		console.log(response); // Success
@@ -46,8 +46,8 @@ function init() {
 	});
 	
 	//Load in Storage via Upload Button Dokumentenansicht
-	let promise3 = sdk.storage.createFile("90", document.getElementById("inpFile").files[0]),
-		promise4 = sdk.storage.createFile("101", document.getElementById("inputFile").files[0]);
+	let promise3 = sdk.storage.createFile("unique()", document.getElementById("inpFile").files[0]),
+		promise4 = sdk.storage.createFile("unique()", document.getElementById("inputFile").files[0]);
 	
 	promise3.then(function (response) {
 		console.log(response); // Success
@@ -64,7 +64,7 @@ function init() {
 	
 	//Daten bekommen über derzeit eingeloggte Person
 	// eslint-disable-next-line one-var
-	let promise = sdk.account.get(name);
+	let promise = sdk.account.get();
 	
 	promise.then(function (response) {
 		console.log(response); // Success

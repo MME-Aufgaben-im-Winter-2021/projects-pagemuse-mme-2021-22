@@ -29,6 +29,10 @@ body {
     padding: 0;
 }
 
+h1 {
+    background-color: rgb(37, 99, 192);
+}
+
 
 .ui {
     display: flex;

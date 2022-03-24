@@ -33,6 +33,9 @@
     "open": "^8.4.0"
   },
   "dependencies": {
-    "bootstrap-icons": "^1.8.1"
+    "appwrite": "^7.0.0",
+    "bootstrap-icons": "^1.8.1",
+    "install": "^0.13.0",
+    "node-appwrite": "^5.0.0"
   }
 }

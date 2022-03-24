@@ -4,8 +4,8 @@ function init() {
 	//Appwrite
 	// eslint-disable-next-line no-undef
 	const sdk = new Appwrite(),
-	btnLogin = document.getElementById("login"),
-	btnRegister = document.getElementById("register"),
+	//btnLogin = document.getElementById("login"),
+	//btnRegister = document.getElementById("register"),
 	//for PDF viewer
 	btnZoom = document.getElementById("zoom"),
 	input = document.getElementById("inputFile"),

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="app/css/main.css">
+    <title>Pagemuse</title>
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@6.0.1"></script>
+    <script type="module" src="app/js/sidenav.js"></script>
+</head>
+
+<body>
+    <sidenav-component></sidenav-component>
+
+    <div class="d-flex flex-column vh-100" id="outerDiv">
+        <h1>Schreibtisch</h1>
+        <div class="flex-grow-1 d-flex" id="innerDiv">
+            <object class="h-100 w-75" id="objectViewer"></object>
+            <div class="border border-danger w-25">
+                hallo
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="app/js/pdfViewer.js"></script>
+    <script type="module" src="app/js/bootstrap.js"></script>
+</body>
+
+</html> 

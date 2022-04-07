@@ -54,7 +54,6 @@ class Nav extends HTMLElement {
                       </a>
                       <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
                           <li><span class="dropdown-text border-bottom fw-bolder" id="username-dropdown">Username</span></li>
-                          <li><a class="dropdown-item" href="#">Settings</a></li>
                           <li><a class="dropdown-item" href="/profile">Profile</a></li>
                           <li>
                               <hr class="dropdown-divider">

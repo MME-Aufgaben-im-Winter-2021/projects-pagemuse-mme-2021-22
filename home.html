@@ -7,61 +7,12 @@
     <link rel="stylesheet" href="app/css/main.css">
     <title>Pagemuse</title>
     <script src="https://cdn.jsdelivr.net/npm/appwrite@6.0.1"></script>
-    <script type="module" src="app/js/sidenav.js"></script>
+    <script type="module" src="app/js/nav.js"></script>
     <script type="module" src="app/js/fileCard.js"></script>
 </head>
 
 <body>
-      <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <!-- Container wrapper -->
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-        <img src="./app/img/pagemuse.png" alt="" width="100" height="100">
-      </a>
-      <!-- Toggle button -->
-      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fas fa-bars"></i>
-      </button>
-
-      <!-- Collapsible wrapper -->
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <!-- Left links -->
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li id="btn_documentView" class="nav-item">
-            <a class="nav-link" href="#">Dokumente</a>
-          </li>
-          <li id="btn_deskView" class="nav-item">
-            <a class="nav-link" href="#">Schreibtisch</a>
-          </li>
-        </ul>
-        <!-- Left links -->
-      </div>
-      <!-- Collapsible wrapper -->
-
-    </div>
-    <ul>
-        <div class="dropdown border-top">
-            <a href="#" class="d-flex align-items-center p-3 link-dark text-decoration-none dropdown-toggle"
-                id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="https://github.com/mdo.png" alt="mdo" width="24" height="24" class="rounded-circle">
-            </a>
-            <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
-                <li><span class="dropdown-text border-bottom fw-bolder" id="username-dropdown">Username</span></li>
-                <li><a class="dropdown-item" href="#">Settings</a></li>
-                <li><a class="dropdown-item" href="/profile">Profile</a></li>
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" id="signout-dropdown" href="#">Sign out</a></li>
-            </ul>
-        </div>
-    </ul>
-    <!-- Container wrapper -->
-  </nav>
-  <!-- Navbar -->
-    <sidenav-component></sidenav-component>
+    <nav-component></nav-component>
 
     <h1>Dokumentenansicht</h1>
 

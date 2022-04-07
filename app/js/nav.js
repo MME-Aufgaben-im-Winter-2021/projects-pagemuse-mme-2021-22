@@ -13,21 +13,15 @@ class Nav extends HTMLElement {
         this.innerHTML = `
 
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-              <!-- Container wrapper -->
+              
               <div class="container-fluid">
                 <a class="navbar-brand" href="#">
                   <img src="./app/img/pagemuse.png" alt="" width="100" height="100">
                 </a>
                 
-                <!-- Toggle button -->
-                <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent"
-                  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <i class="fas fa-bars"></i>
-                </button>
-          
-                <!-- Collapsible wrapper -->
+                
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <!-- Left links -->
+                  
                   <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li id="btn_documentView" class="nav-item">
                       <a href="/home" class="nav-link py-3 px-4" aria-current="page" title="Dokumentenansicht"
@@ -48,13 +42,12 @@ class Nav extends HTMLElement {
                      </a>
                     </li>
                   </ul>
-                  <!-- Left links -->
+                  
                 </div>
-                <!-- Collapsible wrapper -->
-          
-              </div>
-              <ul>
-                  <div class="dropdown border-top">
+                
+                <ul>
+                  <div class="dropdown">
+                  
                       <a href="#" class="d-flex align-items-center p-3 link-dark text-decoration-none dropdown-toggle"
                           id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
                           <img src="https://github.com/mdo.png" alt="mdo" width="24" height="24" class="rounded-circle">
@@ -70,23 +63,18 @@ class Nav extends HTMLElement {
                       </ul>
                   </div>
               </ul>
-              <!-- Container wrapper -->
+          
+              </div>        
             </nav>
             
         `;
 
-        // activate tooltips
-        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-        tooltipTriggerList.forEach((tooltipTriggerEl) => {
-            this.tooltips.push(new bootstrap.Tooltip(tooltipTriggerEl))
-        });
 
         // add classes to elements
         document.getElementsByTagName("body")[0].classList.add("content", "content-pd");
         document.getElementById("nav-" + window.location.href.split("/").pop())?.classList.add("active");
 
         // add event listeners
-        document.getElementById("nav-toggle").addEventListener("click", () => this.toggleNavCollapse(this.tooltips));
         document.getElementById("signout-dropdown").addEventListener("click", AppwriteService.logout);
 
         AppwriteService.getAccount().then(res => {

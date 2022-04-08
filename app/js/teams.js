@@ -235,7 +235,8 @@ function toggleAddMember() {
 function addMember() {
     let email = document.getElementById("memberEmailInput").value;
     let id = document.getElementById("teamDetailModal").getAttribute("team-id");
-    let list = modalElem.querySelector("#memberList")
+    let modalElement = document.getElementById("teamDetailModal");
+    let list = modalElement.querySelector("#memberList");
 
     AppwriteService.addMemberToTeam(id, email).then(res => {
         console.log(res);

@@ -1,5 +1,4 @@
 import os
-import time
 import json
 
 from appwrite.client import Client
@@ -12,6 +11,9 @@ def init_client():
     client.set_endpoint(os.getenv("APPWRITE_ENDPOINT"))
     client.set_project(os.getenv("APPWRITE_FUNCTION_PROJECT_ID"))
     client.set_key(os.getenv("APPWRITE_API_KEY"))
+    print(f"Endpoint: {os.getenv('APPWRITE_ENDPOINT')}")
+    print(f"Project: {os.getenv('APPWRITE_FUNCTION_PROJECT_ID')}")
+    print(f"Key: {os.getenv('APPWRITE_API_KEY')}")
 
     return client
 
@@ -30,69 +32,88 @@ def main():
     )
     print(f"Create collection: {result}")
 
-    result = database.create_string_attribute(
+    database.create_string_attribute(
         EVENT_DATA["$id"], # collection id
-        "comment", # attribute name
-        255, # attribute length
-        True, # attribute is required
-        "", # default value will be ignored 
-        True # attribute is array
-    )
-    print(f"Create comment attribute: {result}")
-
-    result = database.create_string_attribute(
-        EVENT_DATA["$id"], # collection id
-        "userID", # attribute name
-        255, # attribute length
-        True, # attribute is required
-        "", # default value will be ignored
-        True # attribute is array
-    )
-    print(f"Create userID attribute: {result}")
-
-    # creating int attributes failes, using string as workaround
-    result = database.create_string_attribute(
-        EVENT_DATA["$id"], # collection id
-        "timestamp", # attribute name
-        255, # attribute length
-        True, # attribute is required
-        "", # default value will be ignored
-        True # attribute is array
-    )
-    print(f"Create timestamp attribute: {result}")
-
-    result = database.create_boolean_attribute(
-        EVENT_DATA["$id"], # collection id
-        "isDone", # attribute name
+        "bodyValue", # attribute name
+        512, # attribute length
         True # attribute is required
     )
-    print(f"Create isDone attribuet: {result}")
 
-    result = database.create_integer_attribute(
-        EVENT_DATA["$id"], # collection id
-        "lastActivity", # attribute name
-        True # attribute is required
+    database.create_enum_attribute(
+        EVENT_DATA["$id"],
+        "motivation",
+        ["commenting", "replying"], # possible values
+        True
     )
-    print(f"Create lastActivity attribute: {result}")
 
-    while result["status"] != "available":
-        time.sleep(0.5)
-        result = database.get_attribute(
-            EVENT_DATA["$id"],
-            "lastActivity"
-        )
-
-    result = database.create_index(
-        EVENT_DATA["$id"], # collection id
-        "timeKey", # index name
-        "key", # index type
-        ["lastActivity"], # attributes to index
-        ["desc"] # attribute order
+    database.create_string_attribute(
+        EVENT_DATA["$id"],
+        "targetSelector",
+        1024,
+        False
     )
-    print(f"Create index: {result}")
 
+    database.create_float_attribute(
+        EVENT_DATA["$id"], # collection id
+        "targetInkList", # attribute name
+        False, # not required
+        None, # min value, will be ignored?
+        None, # max value, will be ignored?
+        None, # default value, will be ignored?
+        True # attribute is array
+    )
+    
+    database.create_integer_attribute(
+        EVENT_DATA["$id"],
+        "targetInkListLengths",
+        False,
+        None,
+        None,
+        None,
+        True
+    )
 
+    database.create_string_attribute(
+        EVENT_DATA["$id"],
+        "stylesheetValue",
+        1024,
+        False
+    )
 
+    database.create_string_attribute(
+        EVENT_DATA["$id"],
+        "targetSource",
+        64,
+        True
+    )
+
+    database.create_string_attribute(
+        EVENT_DATA["$id"],
+        "creatorId",
+        64,
+        True
+    )
+
+    database.create_string_attribute(
+        EVENT_DATA["$id"],
+        "creatorName",
+        64,
+        True
+    )
+
+    database.create_string_attribute(
+        EVENT_DATA["$id"],
+        "created",
+        20,
+        True
+    )
+
+    database.create_string_attribute(
+        EVENT_DATA["$id"],
+        "modified",
+        20,
+        True
+    )
 
 if __name__ == "__main__":
     main()

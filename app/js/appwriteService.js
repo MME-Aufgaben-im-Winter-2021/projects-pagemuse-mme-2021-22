@@ -110,6 +110,18 @@ class AppwriteService {
         return sdk.database.listDocuments(id);
     }
 
+    createDocument(collectionId, documentId, data) {
+        return sdk.database.createDocument(collectionId, documentId, data);
+    }
+
+    deleteDocument(collectionId, documentId) {
+        return sdk.database.deleteDocument(collectionId, documentId);
+    }
+
+    updateDocument(collectionId, documentId, data) {
+        return sdk.database.updateDocument(collectionId, documentId, data);
+    }
+
 }
 
 export default new AppwriteService();

@@ -47,10 +47,12 @@ function viewFile(event) {
     let fileCard = event.target.closest("file-card");
     let mimeType = fileCard.getAttribute("mime-type");
     let fileId = fileCard.getAttribute("file-id");
+    let fileName = fileCard.getAttribute("text");
     console.log(mimeType, fileId);
 
     sessionStorage.setItem("file-id", fileId);
     sessionStorage.setItem("mime-type", mimeType);
+    sessionStorage.setItem("file-name", fileName);
     window.location.href = "/pdfViewer";
 }
 

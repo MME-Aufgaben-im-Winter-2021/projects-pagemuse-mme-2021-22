@@ -27,7 +27,7 @@ function displayPDF() {
     }, AppwriteService.logout);
 
     adobeDCView = new AdobeDC.View({
-        clientId: "544cfe77e7ef4117a0505a68e68649a4",
+        clientId: "544cfe77e7ef4117a0505a68e68649a4", //TO-DO: In Adobe muss der Localhost noch angepasst werden
         divId: "adobe-dc-view", // div in which the PDF will be rendered
         downloadWithCredentials: true // download the file with Appwrite session cookie
     });

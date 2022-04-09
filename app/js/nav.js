@@ -49,7 +49,7 @@ class Nav extends HTMLElement {
                   
                     <a href="#" class="align-items-center p-3 link-dark text-decoration-none dropdown-toggle"
                         id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="https://github.com/mdo.png" alt="mdo" width="24" height="24" class="rounded-circle">
+                        <img src="app/img/person-fill.svg" alt="mdo" width="24" height="24" class="rounded-circle" style="background-color: rgb(236, 176, 65);">
                     </a>
                      <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
                         <li><span class="dropdown-text fw-bolder px-3" id="username-dropdown">Username</span></li>

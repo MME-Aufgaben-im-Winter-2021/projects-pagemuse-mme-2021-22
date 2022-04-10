@@ -14,7 +14,7 @@ Mit der Anwendung Pagemuse können NutzerInnen eigene PDFs von ihrem Rechner auf
 ![Dokumente](https://user-images.githubusercontent.com/69906372/162581738-90d8df78-439e-434b-b112-27fa00a99dfc.PNG)
 ![Dokument hinzufügen](https://user-images.githubusercontent.com/69906372/162581751-20642b7f-b117-43f8-a1de-c15f9877baa0.PNG)
 
-3. Schreibtischansicht: Klicken die NutzerInnen auf den Button "view" wird die PDf in der Schreibtischansicht angezeigt. Hier können die NutzerInnen Kommentare verfassen, Textstellen markieren, auf der PDF zeichnen. Diese Änderungen werden gespeichert und können von anderen NutzerInnen in dem Team eingesehen werden.
+3. PDF Viewer: Klicken die NutzerInnen auf den Button "view" wird die PDf in dem PDF Viewer angezeigt. Hier können die NutzerInnen Kommentare verfassen, Textstellen markieren, auf der PDF zeichnen. Diese Änderungen werden gespeichert und können von anderen NutzerInnen in dem Team eingesehen werden.
 ![Schreibtisch](https://user-images.githubusercontent.com/69906372/162581762-781be9d9-559b-44a0-841e-d824d188e9a5.PNG)
 ![Bearbeiten](https://user-images.githubusercontent.com/69906372/162581767-07f6e53c-8439-4f34-8721-37e8e4c97c86.PNG)
 

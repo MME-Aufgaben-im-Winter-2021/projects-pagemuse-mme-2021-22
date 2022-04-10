@@ -94,6 +94,7 @@ function openModal(event) {
         uBtn.removeAttribute("file-id");
         // show file selection div
         document.getElementById("fileDiv").classList.remove("d-none");
+  
     }
 
     AppwriteService.getTeams().then(data => {
@@ -126,13 +127,17 @@ function openModal(event) {
             }
         });
 
-        if (hasWriteAccess)
+        if (hasWriteAccess) {
             // unhide upload button if current user has write access
             document.getElementById("uploadButton").classList.remove("d-none");
+            // show delete button
+            document.getElementById("deleteButton").classList.remove("d-none");
+        }
         else if (event.target.id == "secondaryButton") {
             // hide upload button and disable switches if modal was opened via edit button and current user does not have write access
             document.getElementById("uploadButton").classList.add("d-none");
             [].slice.call(document.querySelectorAll("form-check-input")).forEach(input => input.setAttribute("disabled", ""));
+        
         }
 
     }, showErrorToast);

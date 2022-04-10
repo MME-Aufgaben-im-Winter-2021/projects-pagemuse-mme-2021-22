@@ -102,6 +102,10 @@ class AppwriteService {
         return sdk.storage.getFileView(id);
     }
 
+    deleteFile(fileId) {
+        return sdk.storage.deleteFile(fileId);
+    }
+
     getFileForDownload(id) {
         return sdk.storage.getFileDownload(id);
     }

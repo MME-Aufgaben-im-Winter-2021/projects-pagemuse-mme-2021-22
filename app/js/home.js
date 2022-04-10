@@ -40,6 +40,7 @@ function init() {
     newFileModal = new bootstrap.Modal(document.getElementById("newFileModal"));
     document.getElementById("newFileButton").addEventListener("click", openModal);
     document.getElementById("uploadButton").addEventListener("click", uploadFile);
+    document.getElementById("deleteButton").addEventListener("click", deleteFile);
     console.log("Home init");
 }
 
@@ -62,8 +63,9 @@ function openModal(event) {
 
     if (event.target.id == "secondaryButton") {
         let fileCard = event.target.closest("file-card");
+        let fileId = event.target.closest("file-card").getAttribute("file-id");
         // modal was opened by pressing the edit button on existing file --> get file read/write list
-        AppwriteService.getFileMetadata(fileCard.getAttribute("file-id")).then(data => {
+        AppwriteService.getFileMetadata(fileId).then(data => {
             read = data.$read;
             write = data.$write;
         }, (err) => {
@@ -76,7 +78,8 @@ function openModal(event) {
         uBtn.innerHTML = "Save";
         // hide save button temporarily
         uBtn.classList.add("d-none");
-        uBtn.setAttribute("file-id", event.target.closest("file-card").getAttribute("file-id"));
+        uBtn.setAttribute("file-id", fileId);
+        document.getElementById("deleteButton").setAttribute("file-id", fileId);
         // hide file selection div
         document.getElementById("fileDiv").classList.add("d-none");
 
@@ -196,6 +199,19 @@ function uploadFile(event) {
             newFileModal.hide();
         }, showErrorToast);
     }
+}
+
+
+
+function deleteFile(event) {
+    let fileId = event.target.getAttribute("file-id");
+    let card = document.querySelector('file-card[file-id="' + fileId + '"]');
+
+    AppwriteService.deleteFile(event.target.getAttribute("file-id")).then(ret => {
+        card.remove();        
+        showSuccessToast("Successfully deleted file!");
+        newFileModal.hide();
+    }, showErrorToast);
 }
 
 function showErrorToast(err) {

@@ -1,0 +1,25 @@
+.teamsButton {
+    transform: translate(-50px, -50px);
+}
+
+.teamsButton:hover {
+    cursor: pointer;
+}
+
+.owner-icon {
+    fill: $primary;
+}
+
+.remove-icon {
+    fill: $dark;
+}
+
+.remove-icon:hover {
+    fill: $danger;
+    cursor: pointer;
+}
+
+.biTeams {
+    fill: $body-bg;
+    background-color: $primary;
+}

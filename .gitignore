@@ -1,5 +1,1 @@
-# local node dependencies
 node_modules
-
-# Local IDE files
-.vscode

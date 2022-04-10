@@ -1,0 +1,19 @@
+// Vendor
+// here, we cherry-pick the Bootstrap Sass files from NPM. we do the same for Font Awesome
+@import 'vendor/__vendor-dir';
+
+// Abstracts
+// variables/mixins for project – our Bootstrap variables override file lives here
+@import 'abstracts/__abstracts-dir';
+
+// Base Styles
+// you know what this is
+@import 'base/__base-dir';
+
+// Components
+// we hold our hero, layers, iconset, and custom button styles here
+@import 'components/__components-dir';
+
+// Layouts
+// this holds general structure-based stuff like our header. a footer could live here, too
+@import 'layouts/__layouts-dir';

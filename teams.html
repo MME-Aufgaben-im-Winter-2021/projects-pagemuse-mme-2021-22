@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="app/css/main.css">
+    <title>Pagemuse</title>
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@6.0.1"></script>
+    <script type="module" src="app/js/nav.js"></script>
+    <script type="module" src="app/js/fileCard.js"></script>
+</head>
+
+<body>
+    <nav-component></nav-component>
+
+    <h1 class="text-center p-2">My Teams</h1>
+
+    <div class="files py-5">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="fileRow">
+                <!-- File cards will be added here from JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Team detail modal -->
+    <div class="modal fade" id="teamDetailModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="detailNameLabel"></h5>
+                    <input type="text" class="d-none form-control-lg" id="nameDetailInput">
+                </div>
+                <div class="modal-body">
+                    <h5>Members</h5>
+                    <ul class="list-group list-group-flush" id="memberList">
+                        <!-- Team members will be added here from JS -->
+                    </ul>
+                    <div class="d-none mt-5" id="emailDiv">
+                        <label for="memberEmailInput" class="form-label">Member Email address</label>
+                        <div class="input-group">
+                            <input type="email" class="form-control" id="memberEmailInput">
+                            <button class="btn btn-outline-secondary" type="button"
+                                id="confirmMemberMailButton">Add</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex flex-row-reverse justify-content-between">
+                    <div>
+                        <button type="button" class="btn btn-secondary" id="closeTeamButton">Close</button>
+                        <button type="button" class="btn btn-primary d-none" id="editTeamButton">Edit</button>
+                    </div>
+                    <button type="button" class="btn btn-primary d-none" id="addMemberButton">Add Member</button>
+                    <button type="button" class="btn btn-danger d-none" id="deleteTeamButton">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Template for team members in Team detail modal -->
+    <template id="teamMemberTemplate">
+        <li class="list-group-item d-flex justify-content-between" id="memberItem">
+            <span id="memberName"></span>
+            <div class="d-inline-flex align-items-center" id="actionButtons">
+                <span class="d-none badge rounded-pill bg-info text-dark ms-3" id="confirmationBadge">Confirmation pending</span>
+                <div class="d-none ms-3" id="ownerIcon" title="Owner" data-bs-toggle="tooltip" data-bs-placement="right">
+                    <svg class="owner-icon" width="24" height="24" role="img" aria-label="Owner">
+                        <use xlink:href="app/img/bootstrap-icons.svg#x-diamond-fill" />
+                    </svg>
+                </div>
+                <div class="d-none ms-3" id="trashIcon" title="Remove" data-bs-toggle="tooltip" data-bs-placement="right">
+                    <svg class="remove-icon" width="24" height="24" role="img" aria-label="Remove">
+                        <use xlink:href="app/img/bootstrap-icons.svg#trash3" />
+                    </svg>
+                </div>
+                <div class="ms-3" id="leaveIcon" title="Leave team" data-bs-toggle="tooltip" data-bs-placement="right">
+                    <svg class="remove-icon" width="24" height="24" rolge="img" aria-label="Leave team">
+                        <use xlink:href="app/img/bootstrap-icons.svg#box-arrow-left" />
+                    </svg>
+                </div>
+            </div>
+        </li>
+    </template>
+
+    <!-- Button to trigger New Team Modal -->
+    <div class="position-fixed bottom-0 end-0 p-3 teamsButton" style="z-index: 11">
+        <svg class="biTeams rounded-circle shadow" width="64" height="64" role="img" aria-label="Create new team"
+            data-bs-toggle="modal" data-bs-target="#newTeamModal" style="background-color: rgb(54, 10, 95);" >
+            <use xlink:href="app/img/bootstrap-icons.svg#plus-lg"></use>
+        </svg>
+    </div>
+    <!-- New Team Modal -->
+    <div class="modal fade" id="newTeamModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Create new team</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <label for="nameInput" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="nameInput">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="newTeamButton">Create</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+        <div class="toast align-items-center text-white border-0" role="alert" aria-live="assertive" aria-atomic="true"
+            id="toast-div">
+            <div class="d-flex">
+                <div class="toast-body" id="toast-text">
+                    Toast Notification!
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="app/js/teams.js"></script>
+    <script type="module" src="app/js/bootstrap.js"></script>
+</body>
+
+</html>

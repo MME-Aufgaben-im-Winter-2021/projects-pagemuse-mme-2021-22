@@ -29,6 +29,10 @@ class AppwriteService {
         return sdk.storage.listFiles();
     }
 
+    deleteFile(fileId) {
+        return sdk.storage.deleteFile(fileId);
+    }
+
     registerUser(username, email, password) {
         return sdk.account.create("unique()", email, password, username);
     }

@@ -1,8 +1,9 @@
+/* eslint-disable */
 import AppwriteService from "./appwriteService.js";
 import "../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 
-var isRegister = false;
-var toast;
+var isRegister = false,
+    toast;
 
 function init() {
     AppwriteService.getCurrentSession().then(() => {
@@ -60,8 +61,8 @@ function toggleRegistration() {
         element.classList.toggle("hidden");
     isRegister = !isRegister;
 
-    let emailInput = document.getElementById("emailInput");
-    let passwordInput = document.getElementById("passwordInput");
+    let emailInput = document.getElementById("emailInput"),
+        passwordInput = document.getElementById("passwordInput");
 
     if (isRegister) {
         if (emailInput.classList.contains("valid"))

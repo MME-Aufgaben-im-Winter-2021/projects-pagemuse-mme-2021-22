@@ -1,10 +1,11 @@
+/* eslint-disable */
 import AppwriteService from "./appwriteService.js";
 
-var adobeDCView;
-var annotationManager;
-var profile;
-var fileId;
-var annotationIds = [];
+var adobeDCView,
+    annotationManager,
+    profile,
+    fileId,
+    annotationIds = [];
 
 function init() {
     if (window.AdobeDC) displayPDF();

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import AppwriteService from "./appwriteService.js";
 
 var toast;

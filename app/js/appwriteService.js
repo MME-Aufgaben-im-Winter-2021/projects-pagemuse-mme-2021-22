@@ -1,3 +1,4 @@
+/* eslint-disable */
 const sdk = new Appwrite();
 sdk.setEndpoint("https://appwrite.software-engineering.education/v1").setProject("6206643994b46f11896b");
 

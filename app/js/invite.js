@@ -1,12 +1,12 @@
+/* eslint-disable */
 import AppwriteService from "./appwriteService.js";
 
-
 function init() {
-    let url = new URL(window.location.href);
-    let membershipId = url.searchParams.get("membershipId");
-    let userId = url.searchParams.get("userId");
-    let secret = url.searchParams.get("secret");
-    let teamId = url.searchParams.get("teamId");
+    let url = new URL(window.location.href),
+        membershipId = url.searchParams.get("membershipId"),
+        userId = url.searchParams.get("userId"),
+        secret = url.searchParams.get("secret"),
+        teamId = url.searchParams.get("teamId");
 
     AppwriteService.confirmTeamMembership(teamId, membershipId, userId, secret).then(data => {
         console.log(data);

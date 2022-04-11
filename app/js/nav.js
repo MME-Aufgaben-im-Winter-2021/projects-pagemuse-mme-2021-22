@@ -71,7 +71,6 @@ class Nav extends HTMLElement {
             
         `;
 
-
         // add classes to elements
         document.getElementsByTagName("body")[0].classList.add("content", "content-pd");
         document.getElementById("nav-" + window.location.href.split("/").pop())?.classList.add("active");
@@ -85,4 +84,4 @@ class Nav extends HTMLElement {
     }
 }
 
-customElements.define('nav-component', Nav);
+customElements.define("nav-component", Nav);

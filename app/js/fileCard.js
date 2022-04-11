@@ -1,3 +1,4 @@
+/* eslint-disable */
 import "../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 
 class FileCard extends HTMLElement {

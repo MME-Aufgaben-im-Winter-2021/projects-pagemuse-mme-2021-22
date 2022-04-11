@@ -1,9 +1,10 @@
+/* eslint-disable */
 import "../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 import AppwriteService from "./appwriteService.js";
 
-var sess;
-var toast;
-var newFileModal;
+var sess,
+    toast,
+    newFileModal;
 
 function init() {
     // check if user is logged in
@@ -45,10 +46,10 @@ function init() {
 }
 
 function viewFile(event) {
-    let fileCard = event.target.closest("file-card");
-    let mimeType = fileCard.getAttribute("mime-type");
-    let fileId = fileCard.getAttribute("file-id");
-    let fileName = fileCard.getAttribute("text");
+    let fileCard = event.target.closest("file-card"),
+        mimeType = fileCard.getAttribute("mime-type"),
+        fileId = fileCard.getAttribute("file-id"),
+        fileName = fileCard.getAttribute("text");
     console.log(mimeType, fileId);
 
     sessionStorage.setItem("file-id", fileId);
@@ -58,12 +59,12 @@ function viewFile(event) {
 }
 
 function openModal(event) {
-    let read = [], write = [];
-    let uBtn = document.getElementById("uploadButton");
+    let read = [], write = [],
+        uBtn = document.getElementById("uploadButton");
 
-    if (event.target.id == "secondaryButton") {
-        let fileCard = event.target.closest("file-card");
-        let fileId = event.target.closest("file-card").getAttribute("file-id");
+    if (event.target.id === "secondaryButton") {
+        let fileCard = event.target.closest("file-card"),
+            fileId = event.target.closest("file-card").getAttribute("file-id");
         // modal was opened by pressing the edit button on existing file --> get file read/write list
         AppwriteService.getFileMetadata(fileId).then(data => {
             read = data.$read;
@@ -133,7 +134,7 @@ function openModal(event) {
             // show delete button
             document.getElementById("deleteButton").classList.remove("d-none");
         }
-        else if (event.target.id == "secondaryButton") {
+        else if (event.target.id === "secondaryButton") {
             // hide upload button and disable switches if modal was opened via edit button and current user does not have write access
             document.getElementById("uploadButton").classList.add("d-none");
             [].slice.call(document.querySelectorAll("form-check-input")).forEach(input => input.setAttribute("disabled", ""));
@@ -148,9 +149,9 @@ function openModal(event) {
 function uploadFile(event) {
     console.log("upload");
 
-    let read = [];
-    let write = [];
-    let teams = [].slice.call(document.querySelectorAll("#teamRow"));
+    let read = [],
+        write = [],
+        teams = [].slice.call(document.querySelectorAll("#teamRow"));
     // iterate over all teams
     teams.forEach(team => {
         console.log(team);
@@ -174,8 +175,8 @@ function uploadFile(event) {
         // function was triggered to upload a new file
 
         // check if file to upload was selected
-        let fileInput = document.getElementById("fileInput");
-        let file = fileInput.files[0];
+        let fileInput = document.getElementById("fileInput"),
+            file = fileInput.files[0];
         if (file) {
             fileInput.classList.remove("is-invalid");
             fileInput.classList.add("is-valid");
@@ -206,11 +207,9 @@ function uploadFile(event) {
     }
 }
 
-
-
 function deleteFile(event) {
-    let fileId = event.target.getAttribute("file-id");
-    let card = document.querySelector('file-card[file-id="' + fileId + '"]');
+    let fileId = event.target.getAttribute("file-id"),
+        card = document.querySelector("file-card[file-id=\"" + fileId + "\"]");
 
     AppwriteService.deleteFile(event.target.getAttribute("file-id")).then(ret => {
         card.remove();        

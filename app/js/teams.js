@@ -1,9 +1,10 @@
+/* eslint-disable */
 import AppwriteService from "./appwriteService.js";
 import "../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 
-var toast;
-var modal;
-var userID;
+var toast,
+    modal,
+    userID;
 
 function init() {
     // check if user is logged in 
@@ -41,7 +42,7 @@ function createTeamCard(element) {
     elem.setAttribute("timestamp", element.dateCreated);
     elem.setAttribute("text", element.name);
     elem.setAttribute("primary-btn", "View");
-    if (element.sum == 1)
+    if (element.sum === 1)
         elem.setAttribute("secondary-text", "1 member");
     else
         elem.setAttribute("secondary-text", element.sum + " members");
@@ -95,7 +96,7 @@ function showTeamDetails(id) {
                 template.content.querySelector("#trashIcon").setAttribute("is-owner", "true");
 
                 // check if current user is owner
-                if (member.userId == userID) {
+                if (member.userId === userID) {
                     document.getElementById("editTeamButton").classList.remove("d-none");
                     document.getElementById("addMemberButton").classList.remove("d-none");
                 }
@@ -109,7 +110,7 @@ function showTeamDetails(id) {
             else
                 template.content.querySelector("#confirmationBadge").classList.add("d-none");
 
-            if (member.userId == userID)
+            if (member.userId === userID)
                 template.content.querySelector("#leaveIcon").classList.remove("d-none");
             else
                 template.content.querySelector("#leaveIcon").classList.add("d-none");
@@ -131,13 +132,13 @@ function showTeamDetails(id) {
 }
 
 function startTeamEdit(event) {
-    let modalElem = document.getElementById("teamDetailModal");
-    let id = modalElem.getAttribute("team-id");
-    let name = modalElem.getAttribute("team-name");
-    let nameInput = document.getElementById("nameDetailInput");
-    let nameLabel = document.getElementById("detailNameLabel");
+    let modalElem = document.getElementById("teamDetailModal"),
+        id = modalElem.getAttribute("team-id"),
+        name = modalElem.getAttribute("team-name"),
+        nameInput = document.getElementById("nameDetailInput"),
+        nameLabel = document.getElementById("detailNameLabel");
 
-    if (event.target.innerHTML == "Edit") {
+    if (event.target.innerHTML === "Edit") {
         console.log("Start editing");
         event.target.innerHTML = "Save";
         document.getElementById("closeTeamButton").innerHTML = "Cancel";
@@ -181,7 +182,7 @@ function stopTeamEdit(event) {
     let icons = [].slice.call(document.querySelectorAll('#trashIcon[is-owner="false"]'));
     icons.forEach(icon => icon.classList.add("d-none"));
 
-    if (event.target.innerHTML == "Cancel") {
+    if (event.target.innerHTML === "Cancel") {
         // currently in editing mode, stop mode but still show modal
         event.target.innerHTML = "Close";
         // TODO: remove buttons for team members
@@ -199,16 +200,16 @@ function stopTeamEdit(event) {
 
 function leaveTeam(event) {
     console.log("leave team");
-    let membershipID = event.target.closest("li").getAttribute("membership-id");
-    let teamID = document.getElementById("teamDetailModal").getAttribute("team-id");
+    let membershipID = event.target.closest("li").getAttribute("membership-id"),
+        teamID = document.getElementById("teamDetailModal").getAttribute("team-id");
     AppwriteService.removeMemberFromTeam(teamID, membershipID).then(data => {
         console.log(data);
     }, showErrorToast);
 }
 
 function deleteTeam() {
-    let id = document.getElementById("teamDetailModal").getAttribute("team-id");
-    let card = document.querySelector('file-card[team-id="' + id + '"]');
+    let id = document.getElementById("teamDetailModal").getAttribute("team-id"),
+        card = document.querySelector('file-card[team-id="' + id + '"]');
     console.log(card);
 
     AppwriteService.deleteTeam(id).then(res => {
@@ -227,16 +228,16 @@ function deleteTeam() {
 }
 
 function toggleAddMember() {
-    let modalElem = document.getElementById("teamDetailModal");
-    let id = modalElem.getAttribute("team-id");
+    let modalElem = document.getElementById("teamDetailModal"),
+        id = modalElem.getAttribute("team-id");
     document.getElementById("emailDiv").classList.toggle("d-none");
 }
 
 function addMember() {
-    let email = document.getElementById("memberEmailInput").value;
-    let id = document.getElementById("teamDetailModal").getAttribute("team-id");
-    let modalElement = document.getElementById("teamDetailModal");
-    let list = modalElement.querySelector("#memberList");
+    let email = document.getElementById("memberEmailInput").value,
+        id = document.getElementById("teamDetailModal").getAttribute("team-id"),
+        modalElement = document.getElementById("teamDetailModal"),
+        list = modalElement.querySelector("#memberList");
 
     AppwriteService.addMemberToTeam(id, email).then(res => {
         console.log(res);
@@ -269,17 +270,17 @@ function addMember() {
 }
 
 function deleteMember(event) {
-    let elem = event.target.closest("li");
-    let memberID = elem.getAttribute("membership-id");
-    let teamID = document.getElementById("teamDetailModal").getAttribute("team-id");
+    let elem = event.target.closest("li"),
+        memberID = elem.getAttribute("membership-id"),
+        teamID = document.getElementById("teamDetailModal").getAttribute("team-id");
     AppwriteService.removeMemberFromTeam(teamID, memberID).then(data => {
         console.log(data);
         elem.remove();
         let badge = event.target.closest("#actionButtons").querySelector("#confirmationBadge");
         if (badge.classList.contains("d-none")) {
-            let card = document.querySelector('file-card[team-id="' + teamID + '"]');
-            let newCount = parseInt(card.getAttribute("member-sum")) -1;
-            if (newCount == 1)
+            let card = document.querySelector("file-card[team-id=\"" + teamID + '"]'),
+                newCount = parseInt(card.getAttribute("member-sum")) -1;
+            if (newCount === 1)
                 card.setAttribute("secondary-text", "1 member");
             else
                 card.setAttribute("secondary-text", newCount + " members");

@@ -1,6 +1,4 @@
-# Template für die MME-Projekte
-
-Die aktuelle _Release_-Version dieses Projekts kann unter: https://pagemuse.software-engineering.education aufgerufen werden.
+# MME-Projekt Pagemuse
 
 ### Kurzbeschreibung der Anwendung:
 Mit der Anwendung Pagemuse können NutzerInnen eigene PDFs von ihrem Rechner auf die Plattform hochladen. Diese hochgeladenen PDFs können im Anschluss durch andere NutzerInnen in Teams gelesen werden. Dabei können diese die PDFs bearbeiten und Kommentare zu diesen erstellen. Diese Bearbeitungen können von den NutzerInnen eingesehen werden, die dem Team beigetreten sind.

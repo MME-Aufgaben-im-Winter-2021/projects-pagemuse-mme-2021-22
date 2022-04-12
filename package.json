@@ -7,6 +7,7 @@
   "license": "MIT",
   "scripts": {
     "build": "npm run css",
+    "prebuild": "npm install",
     "css-compile": "sass --load-path=node_modules --style=compressed --embed-sources scss:app/css",
     "css-prefix": "postcss --replace app/css/main.css --use autoprefixer --map",
     "css-purge": "purgecss --keyframes --css app/css/main.css --content index.html --output app/css/",

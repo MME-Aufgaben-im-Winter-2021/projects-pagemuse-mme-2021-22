@@ -1,4 +1,4 @@
-import "../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
+// import "../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 import AppwriteService from "./appwriteService.js";
 
 var sess;
@@ -54,7 +54,7 @@ function viewFile(event) {
     sessionStorage.setItem("file-id", fileId);
     sessionStorage.setItem("mime-type", mimeType);
     sessionStorage.setItem("file-name", fileName);
-    window.location.href = "/pdfViewer";
+    window.location.href = "/pdfViewer.html";
 }
 
 function openModal(event) {

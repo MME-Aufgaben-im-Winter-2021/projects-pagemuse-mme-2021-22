@@ -1,5 +1,5 @@
 import AppwriteService from "./appwriteService.js";
-import "../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
+// import "../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 
 var toast;
 var modal;

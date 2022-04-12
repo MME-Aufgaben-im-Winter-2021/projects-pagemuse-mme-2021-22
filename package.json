@@ -5,9 +5,10 @@
   "description": "Demo project for building a Bootstrap powered site via npm.",
   "author": "mdo",
   "license": "MIT",
+  "type": "module",
   "scripts": {
-    "build": "npm run css",
-    "prebuild": "npm install",
+    "build": "node build_for_deployment.js",
+    "prebuild": "npm install && npm run css",
     "css-compile": "sass --load-path=node_modules --style=compressed --embed-sources scss:app/css",
     "css-prefix": "postcss --replace app/css/main.css --use autoprefixer --map",
     "css-purge": "purgecss --keyframes --css app/css/main.css --content index.html --output app/css/",
@@ -21,11 +22,14 @@
     "appwrite": "^7.0.0",
     "bootstrap": "^5.1.3",
     "bootstrap-icons": "^1.8.1",
+    "express": "^4.17.3",
     "isomorphic-form-data": "^2.0.0",
+    "open": "^8.4.0",
     "popper.js": "^1.16.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.4",
+    "dotenv": "^16.0.0",
     "nodemon": "^2.0.15",
     "npm-run-all": "^4.1.5",
     "postcss-cli": "^9.1.0",

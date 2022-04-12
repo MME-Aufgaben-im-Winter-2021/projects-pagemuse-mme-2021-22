@@ -1,6 +1,5 @@
 import AppwriteService from "./appwriteService.js";
 
-
 function init() {
     let url = new URL(window.location.href);
     let membershipId = url.searchParams.get("membershipId");
@@ -13,7 +12,7 @@ function init() {
         showSuccessToast("Successfully confirmed team membership!");
 
         setTimeout(() => {
-            AppwriteService.getCurrentSession().then(() => window.location.href = "/home", () => window.location.href = "/auth")
+            AppwriteService.getCurrentSession().then(() => window.location.href = "/home.html", () => window.location.href = "/auth.html")
         }, 5000);
 
     }, showErrorToast);

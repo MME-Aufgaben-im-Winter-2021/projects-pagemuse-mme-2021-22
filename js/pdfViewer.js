@@ -27,7 +27,7 @@ function displayPDF() {
     }, AppwriteService.logout);
 
     adobeDCView = new AdobeDC.View({
-        clientId: "851737f6735f4cfabed65a7db9d44ecc",
+        clientId: "fbadfda293e14086af1b91ae90940ffa",
         divId: "adobe-dc-view", // div in which the PDF will be rendered
         downloadWithCredentials: true // download the file with Appwrite session cookie
     });

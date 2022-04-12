@@ -1,5 +1,5 @@
 import AppwriteService from "./appwriteService.js";
-import "../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
+// import "../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 
 var isRegister = false;
 var toast;
@@ -7,7 +7,7 @@ var toast;
 function init() {
     AppwriteService.getCurrentSession().then(() => {
         console.log("User already logged in. Forwarding to home");
-        window.location.href = "/home";
+        window.location.href = "/home.html";
     }, err => {
         console.log("User not logged in!");
     });
@@ -32,7 +32,7 @@ function init() {
 function login() {
     AppwriteService.openSession(document.getElementById("emailInput").value, document.getElementById("passwordInput").value).then(res => {
         console.log("Session succesful", res);
-        window.location.href = "/home";
+        window.location.href = "/home.html";
     }, err => {
         let passwordInput = document.getElementById("passwordInput");
         passwordInput.classList.remove("is-valid");
@@ -45,7 +45,7 @@ function login() {
  */
 async function register() {
     AppwriteService.registerUser(document.getElementById("usernameInput").value, document.getElementById("emailInput").value, document.getElementById("passwordInput").value).then(res => {
-        window.location.href = "/home";
+        window.location.href = "/home.html";
     }, err => {
         document.getElementById("toast-text").innerHTML = err.message;
         toast.show();

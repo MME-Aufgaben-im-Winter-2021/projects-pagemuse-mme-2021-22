@@ -17,11 +17,11 @@ class AppwriteService {
     async logout() {
         sdk.account.getSession('current').then(sess => {
             sdk.account.deleteSession(sess.$id).then(resp => {
-                window.location.href = "/auth";
+                window.location.href = "/auth.html";
             });
         }, err => {
             // user not logged in
-            window.location.href = "/auth";
+            window.location.href = "/auth.html";
         });
     }
 
@@ -75,7 +75,7 @@ class AppwriteService {
 
     addMemberToTeam(id, email) {
         // TODO: change redirect URL for prod
-        return sdk.teams.createMembership(id, email, [], "http://localhost:3000/invite");
+        return sdk.teams.createMembership(id, email, [], "http://pagemuse.software-engineering.education//invite.html");
     }
 
     removeMemberFromTeam(teamID, membershipID) {
